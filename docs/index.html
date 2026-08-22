@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSC Prelims — Canonical Microtheme Master Portal (2009–2026)</title>
+    <meta name="description" content="One-stop destination for UPSC Prelims Microtheme-based preparation. Explore 183 canonical microthemes with complete historical questions, frequency trends, options, and explanations across CSE, CDS, and CAPF.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ambient Background Glows -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+    <div class="bg-glow glow-3"></div>
+
+    <!-- Top Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⚡</span>
+                <div class="brand-text">
+                    <h1 class="brand-title">UPSC Prelims Microtheme Hub</h1>
+                    <p class="brand-subtitle">17-Year Canonical Microtheme Framework (2009–2026)</p>
+                </div>
+            </div>
+
+            <div class="nav-center">
+                <div class="global-search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="global-search" placeholder="Search any microtheme, concept, or question keyword...">
+                    <button id="clear-search" class="clear-btn" style="display:none;">✕</button>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <button class="nav-btn" id="btn-theory-guide">📖 Political Theory Guide</button>
+                <div class="mode-toggle-group">
+                    <button class="mode-btn active" id="mode-study">Study Mode</button>
+                    <button class="mode-btn" id="mode-practice">Practice Mode</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Subject Tabs Carousel -->
+    <section class="subject-bar">
+        <div class="subject-container" id="subject-tabs-container">
+            <!-- Populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Main Workspace (Dual Pane Layout) -->
+    <main class="portal-main">
+        <div class="portal-layout">
+            
+            <!-- Left Pane: Microtheme List & Explorer -->
+            <aside class="sidebar-pane">
+                <div class="sidebar-header">
+                    <div class="sidebar-header-top">
+                        <h2 class="sidebar-title" id="current-subject-title">All Microthemes</h2>
+                        <span class="theme-counter" id="theme-count-badge">183 Themes</span>
+                    </div>
+
+                    <!-- Filter Controls -->
+                    <div class="sidebar-controls">
+                        <select id="sort-select" class="portal-select">
+                            <option value="freq-desc">🔥 Highest Frequency (Most Asked)</option>
+                            <option value="recent-desc">⚡ Most Recent (2018–2025)</option>
+                            <option value="alpha-asc">🔤 Alphabetical (A–Z)</option>
+                            <option value="total-all">🌐 All Exams Total (CSE+CDS+CAPF)</option>
+                        </select>
+                        <select id="yield-filter" class="portal-select">
+                            <option value="all">All Yields</option>
+                            <option value="high">🔥 High Yield (Core Repeats)</option>
+                            <option value="medium">⭐ Medium Yield</option>
+                            <option value="standard">📌 Standard</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Scrollable Microtheme Cards List -->
+                <div class="microtheme-list" id="microtheme-cards-container">
+                    <!-- Populated by JS -->
+                </div>
+            </aside>
+
+            <!-- Right Pane: Microtheme Detail & Question Viewer -->
+            <section class="detail-pane" id="detail-pane">
+                
+                <!-- Microtheme Hero Banner -->
+                <div class="theme-hero-card" id="theme-hero-card">
+                    <div class="theme-hero-top">
+                        <div class="theme-hero-badges">
+                            <span class="subject-badge" id="hero-subject-badge">Polity</span>
+                            <span class="yield-badge-pill" id="hero-yield-badge">🔥 High Yield</span>
+                            <span class="stat-pill" id="hero-freq-stat">14 CSE PYQs</span>
+                        </div>
+                        <h2 class="theme-hero-title" id="hero-theme-title">Select a Microtheme to Begin</h2>
+                    </div>
+
+                    <p class="theme-hero-desc" id="hero-theme-desc">
+                        Explore all historical questions, core concepts, answer keys, and explanations categorized under this canonical microtheme.
+                    </p>
+
+                    <!-- Frequency Timeline & Stats Grid -->
+                    <div class="hero-stats-row">
+                        <div class="hero-stat-box">
+                            <span class="hsb-num" id="hsb-cse-count">0</span>
+                            <span class="hsb-label">UPSC CSE PYQs</span>
+                        </div>
+                        <div class="hero-stat-box">
+                            <span class="hsb-num" id="hsb-cross-count">0</span>
+                            <span class="hsb-label">CDS & CAPF Questions</span>
+                        </div>
+                        <div class="hero-stat-box">
+                            <span class="hsb-num" id="hsb-years-span">—</span>
+                            <span class="hsb-label">Years Tested</span>
+                        </div>
+                        <div class="hero-stat-box">
+                            <span class="hsb-num" id="hsb-recent-rate">—</span>
+                            <span class="hsb-label">Recent Trend (2018–2025)</span>
+                        </div>
+                    </div>
+
+                    <!-- Year Timeline Badges -->
+                    <div class="years-timeline-wrap">
+                        <span class="yt-label">Exam Occurrences:</span>
+                        <div class="yt-pills" id="hero-years-pills">
+                            <!-- Year Pills -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question Filter Tabs -->
+                <div class="question-tabs-row">
+                    <div class="q-tabs">
+                        <button class="q-tab active" data-tab="cse">🏛️ UPSC CSE Prelims (<span id="tab-cse-count">0</span>)</button>
+                        <button class="q-tab" data-tab="cross">🎯 CDS & CAPF Practice (<span id="tab-cross-count">0</span>)</button>
+                        <button class="q-tab" data-tab="all">📑 All Questions (<span id="tab-all-count">0</span>)</button>
+                    </div>
+
+                    <div class="q-view-options">
+                        <button class="toggle-all-exp-btn" id="btn-toggle-all-exp">👁️ Expand All Explanations</button>
+                    </div>
+                </div>
+
+                <!-- Questions Container -->
+                <div class="questions-stream" id="questions-stream">
+                    <!-- Question Cards Populated by JS -->
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Theory Guide Reader Modal -->
+    <div class="modal-backdrop" id="theory-modal" style="display:none;">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <span class="modal-icon">📖</span>
+                    <div>
+                        <h2 class="modal-title">Political Theory & Philosophy Master Guide</h2>
+                        <p class="modal-sub">Comprehensive concepts, definitions, and thinkers tested in UPSC Prelims</p>
+                    </div>
+                </div>
+                <button class="modal-close-btn" id="btn-close-modal">✕</button>
+            </div>
+            <div class="modal-body" id="theory-modal-content">
+                <!-- Rendered Markdown Content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Embedded Portal Database -->
+    <script src="portal_data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

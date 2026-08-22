@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSC CSE 2024 — PYQ Microtheme Overlap Dashboard</title>
+    <meta name="description" content="Interactive analysis of how UPSC CSE 2024 Prelims GS questions overlap with previous year questions from CSE, CAPF, and CDS exams at the microtheme level.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">📊</span>
+                    <div>
+                        <h1 class="logo-text">PYQ Microtheme Analyzer</h1>
+                        <p class="logo-sub">UPSC CSE 2024 Prelims GS Paper &bull; 17-Year Microtheme Framework (2009–2025)</p>
+                    </div>
+                </div>
+                <div class="header-badge">
+                    <span class="badge badge-accent">179 Canonical Microthemes</span>
+                    <span class="badge badge-outline" id="corpus-size-badge">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Stats -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-headline">
+                <h2 class="hero-title">
+                    <span class="hero-number" id="hero-pct">—</span>
+                    <span class="hero-label">of CSE 2024 questions had microthemes from PYQs</span>
+                </h2>
+                <p class="hero-subtitle">Mapped against the 17-Year Prelims Microtheme Taxonomy (2009–2025) across UPSC CSE, CAPF, and CDS exams.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card stat-card-primary">
+                    <div class="stat-value" id="stat-any-match">—</div>
+                    <div class="stat-label">Questions with PYQ Match</div>
+                    <div class="stat-sub" id="stat-any-pct">—</div>
+                </div>
+                <div class="stat-card stat-card-accent">
+                    <div class="stat-value" id="stat-strong-match">—</div>
+                    <div class="stat-label">Strong Microtheme Overlap</div>
+                    <div class="stat-sub" id="stat-strong-pct">—</div>
+                </div>
+                <div class="stat-card stat-card-info">
+                    <div class="stat-value" id="stat-avg-matches">—</div>
+                    <div class="stat-label">Avg PYQ Matches / Question</div>
+                    <div class="stat-sub">Across all exams & years</div>
+                </div>
+                <div class="stat-card stat-card-warm">
+                    <div class="stat-value" id="stat-corpus">—</div>
+                    <div class="stat-label">PYQ Corpus Size</div>
+                    <div class="stat-sub">CSE + CAPF + CDS questions</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="charts-section">
+        <div class="container">
+            <div class="charts-grid">
+                <!-- Subject Breakdown -->
+                <div class="chart-card chart-card-wide">
+                    <div class="chart-header">
+                        <h3 class="chart-title">📚 Subject-wise PYQ Coverage</h3>
+                        <p class="chart-desc">What percentage of CSE 2024 questions in each subject had matching microthemes in PYQs</p>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="subjectChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Year Heatmap -->
+                <div class="chart-card chart-card-wide">
+                    <div class="chart-header">
+                        <h3 class="chart-title">📅 Year-wise Microtheme Contributions</h3>
+                        <p class="chart-desc">Which prior years contributed the most matching microthemes to CSE 2024</p>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="yearChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Exam Contribution -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">🎯 Exam-wise Contribution</h3>
+                        <p class="chart-desc">Which exams contributed the most PYQ matches</p>
+                    </div>
+                    <div class="chart-body chart-body-doughnut">
+                        <canvas id="examChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Coverage Distribution -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">📈 Coverage Distribution</h3>
+                        <p class="chart-desc">Distribution of PYQ match strength across questions</p>
+                    </div>
+                    <div class="chart-body chart-body-doughnut">
+                        <canvas id="coverageChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Insight -->
+    <section class="insight-section">
+        <div class="container">
+            <div class="insight-card">
+                <div class="insight-icon">💡</div>
+                <div class="insight-content">
+                    <h3>Key Insight</h3>
+                    <p id="insight-text">Loading analysis...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Question-by-Question Table -->
+    <section class="table-section" id="questions">
+        <div class="container">
+            <div class="table-header-row">
+                <h2 class="section-title">🔍 Question-by-Question Microtheme Analysis</h2>
+                <div class="table-controls">
+                    <div class="filter-group">
+                        <label>Subject:</label>
+                        <select id="filter-subject" class="filter-select">
+                            <option value="all">All Subjects</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Coverage:</label>
+                        <select id="filter-coverage" class="filter-select">
+                            <option value="all">All</option>
+                            <option value="strong">Strong Match (≥30%)</option>
+                            <option value="any">Any Match</option>
+                            <option value="none">No Match</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <input type="text" id="search-input" class="search-input" placeholder="Search questions...">
+                    </div>
+                </div>
+            </div>
+            <div class="table-container" id="questions-table">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>UPSC CSE 2024 PYQ Microtheme Overlap Dashboard — Built with nuanced LLM-powered microtheme extraction</p>
+            <p class="footer-sub">Data sources: UPSC CSE GS (2011–2026), CAPF GAI (2013–2024), CDS GK (2013–2025) from Examsnet + SuperKalam</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

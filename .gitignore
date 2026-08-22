@@ -1,0 +1,27 @@
+# Python virtual environments & bytecode
+.venv/
+env/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Large binary files & PDFs
+*.pdf
+books/*.pdf
+
+# OS & Editor generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
+
+# Antigravity IDE & Gemini internal state
+.gemini/
+.cache/
+*.log

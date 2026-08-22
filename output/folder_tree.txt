@@ -1,0 +1,69 @@
+/output/
+  /capf/
+    /capf 2013/
+      capf_2013_GAI.csv  (125 rows)
+    /capf 2014/
+      capf_2014_GAI.csv  (125 rows)
+    /capf 2015/
+      capf_2015_GAI.csv  (125 rows)
+    /capf 2016/
+      capf_2016_GAI.csv  (125 rows)
+    /capf 2017/
+      capf_2017_GAI.csv  (125 rows)
+    /capf 2018/
+      capf_2018_GAI.csv  (125 rows)
+    /capf 2019/
+      capf_2019_GAI.csv  (125 rows)
+    /capf 2020/
+      capf_2020_GAI.csv  (125 rows)
+    /capf 2021/
+      capf_2021_GAI.csv  (125 rows)
+    /capf 2022/
+      capf_2022_GAI.csv  (125 rows)
+    /capf 2023/
+      capf_2023_GAI.csv  (120 rows)
+    /capf 2024/
+      capf_2024_GAI.csv  (125 rows)
+    capf_all_years_GAI.csv  (1495 rows, merged)
+  /cds/
+    /cds 2013/
+      cds_2013_I_GK.csv  (120 rows)
+      cds_2013_II_GK.csv  (120 rows)
+    /cds 2014/
+      cds_2014_I_GK.csv  (120 rows)
+      cds_2014_II_GK.csv  (120 rows)
+    /cds 2015/
+      cds_2015_I_GK.csv  (120 rows)
+      cds_2015_II_GK.csv  (120 rows)
+    /cds 2016/
+      cds_2016_I_GK.csv  (120 rows)
+      cds_2016_II_GK.csv  (120 rows)
+    /cds 2017/
+      cds_2017_I_GK.csv  (120 rows)
+      cds_2017_II_GK.csv  (120 rows)
+    /cds 2018/
+      cds_2018_I_GK.csv  (120 rows)
+      cds_2018_II_GK.csv  (120 rows)
+    /cds 2019/
+      cds_2019_I_GK.csv  (120 rows)
+      cds_2019_II_GK.csv  (120 rows)
+    /cds 2020/
+      cds_2020_I_GK.csv  (120 rows)
+      cds_2020_II_GK.csv  (120 rows)
+    /cds 2021/
+      cds_2021_I_GK.csv  (120 rows)
+      cds_2021_II_GK.csv  (120 rows)
+    /cds 2022/
+      cds_2022_I_GK.csv  (120 rows)
+      cds_2022_II_GK.csv  (120 rows)
+    /cds 2023/
+      cds_2023_I_GK.csv  (120 rows)
+      cds_2023_II_GK.csv  (120 rows)
+    /cds 2024/
+      cds_2024_I_GK.csv  (120 rows)
+      cds_2024_II_GK.csv  (120 rows)
+    /cds 2025/
+      cds_2025_I_GK.csv  (120 rows)
+      cds_2025_II_GK.csv  (120 rows)
+    cds_all_years_GK.csv  (3120 rows, merged)
+  all_exams_prelims.csv  (6215 rows, merged) [Includes 1600 UPSC CSE GS rows from PRELIMS/gs]
