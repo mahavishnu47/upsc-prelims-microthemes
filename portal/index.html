@@ -58,11 +58,16 @@
         <div class="portal-layout">
             
             <!-- Left Pane: Microtheme List & Explorer -->
-            <aside class="sidebar-pane">
+            <aside class="sidebar-pane" id="sidebar-pane">
                 <div class="sidebar-header">
                     <div class="sidebar-header-top">
-                        <h2 class="sidebar-title" id="current-subject-title">All Microthemes</h2>
-                        <span class="theme-counter" id="theme-count-badge">183 Themes</span>
+                        <div class="sidebar-header-title-wrap">
+                            <h2 class="sidebar-title" id="current-subject-title">All Microthemes</h2>
+                            <span class="theme-counter" id="theme-count-badge">183 Themes</span>
+                        </div>
+                        <button class="mobile-collapse-btn" id="mobile-toggle-sidebar" aria-label="Toggle themes list">
+                            <span id="mobile-toggle-icon">▲ Collapse</span>
+                        </button>
                     </div>
 
                     <!-- Filter Controls -->

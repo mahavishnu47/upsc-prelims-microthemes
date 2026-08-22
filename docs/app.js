@@ -112,6 +112,17 @@ function setupEventListeners() {
         document.getElementById("btn-toggle-all-exp").textContent = allVisible ? "👁️ Expand All Explanations" : "🙈 Hide All Explanations";
     });
 
+    // Mobile Sidebar Toggle
+    const mobileToggleBtn = document.getElementById("mobile-toggle-sidebar");
+    const sidebarPane = document.getElementById("sidebar-pane");
+    if (mobileToggleBtn && sidebarPane) {
+        mobileToggleBtn.addEventListener("click", () => {
+            const isCollapsed = sidebarPane.classList.toggle("collapsed");
+            const iconText = isCollapsed ? "▼ Browse Themes" : "▲ Collapse";
+            document.getElementById("mobile-toggle-icon").textContent = iconText;
+        });
+    }
+
     // Theory Guide Modal
     document.getElementById("btn-theory-guide").addEventListener("click", openTheoryModal);
     document.getElementById("btn-close-modal").addEventListener("click", closeTheoryModal);
@@ -252,6 +263,14 @@ function selectMicrotheme(m) {
 
     renderHeroBanner(m);
     renderQuestions();
+
+    // On mobile screens, smoothly scroll to detail pane and collapse sidebar for easier reading
+    if (window.innerWidth <= 1024) {
+        const detailPane = document.getElementById("detail-pane");
+        if (detailPane) {
+            detailPane.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
 }
 
 function renderHeroBanner(m) {
