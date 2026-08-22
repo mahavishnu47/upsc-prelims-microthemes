@@ -112,16 +112,14 @@ function setupEventListeners() {
         document.getElementById("btn-toggle-all-exp").textContent = allVisible ? "👁️ Expand All Explanations" : "🙈 Hide All Explanations";
     });
 
-    // Mobile Sidebar Toggle
-    const mobileToggleBtn = document.getElementById("mobile-toggle-sidebar");
-    const sidebarPane = document.getElementById("sidebar-pane");
-    if (mobileToggleBtn && sidebarPane) {
-        mobileToggleBtn.addEventListener("click", () => {
-            const isCollapsed = sidebarPane.classList.toggle("collapsed");
-            const iconText = isCollapsed ? "▼ Browse Themes" : "▲ Collapse";
-            document.getElementById("mobile-toggle-icon").textContent = iconText;
-        });
-    }
+    // Mobile Drawer Controls
+    const openPickerBtn = document.getElementById("mab-open-picker");
+    const closeDrawerBtn = document.getElementById("drawer-close-btn");
+    const backdrop = document.getElementById("sidebar-backdrop");
+
+    if (openPickerBtn) openPickerBtn.addEventListener("click", openDrawer);
+    if (closeDrawerBtn) closeDrawerBtn.addEventListener("click", closeDrawer);
+    if (backdrop) backdrop.addEventListener("click", closeDrawer);
 
     // Theory Guide Modal
     document.getElementById("btn-theory-guide").addEventListener("click", openTheoryModal);
@@ -129,6 +127,22 @@ function setupEventListeners() {
     document.getElementById("theory-modal").addEventListener("click", (e) => {
         if (e.target.id === "theory-modal") closeTheoryModal();
     });
+}
+
+function openDrawer() {
+    const sidebar = document.getElementById("sidebar-pane");
+    const backdrop = document.getElementById("sidebar-backdrop");
+    if (sidebar) sidebar.classList.add("drawer-open");
+    if (backdrop) backdrop.classList.add("active");
+    document.body.style.overflow = "hidden"; // Prevent background scroll when drawer is open
+}
+
+function closeDrawer() {
+    const sidebar = document.getElementById("sidebar-pane");
+    const backdrop = document.getElementById("sidebar-backdrop");
+    if (sidebar) sidebar.classList.remove("drawer-open");
+    if (backdrop) backdrop.classList.remove("active");
+    document.body.style.overflow = "";
 }
 
 function setMode(practice) {
@@ -261,10 +275,21 @@ function selectMicrotheme(m) {
         c.classList.toggle("active", c.dataset.id === m.id);
     });
 
+    // Update Mobile Active Bar
+    const mabSubject = document.getElementById("mab-subject");
+    const mabTitle = document.getElementById("mab-theme-title");
+    const mabCount = document.getElementById("mab-count");
+    if (mabSubject) mabSubject.textContent = m.subject;
+    if (mabTitle) mabTitle.textContent = m.theme_name;
+    if (mabCount) mabCount.textContent = `${m.total_cse_questions} Qs`;
+
     renderHeroBanner(m);
     renderQuestions();
 
-    // On mobile screens, smoothly scroll to detail pane and collapse sidebar for easier reading
+    // Close drawer on mobile if open
+    closeDrawer();
+
+    // Scroll to top of questions smoothly
     if (window.innerWidth <= 1024) {
         const detailPane = document.getElementById("detail-pane");
         if (detailPane) {
