@@ -2,7 +2,7 @@
 
 > **A one-stop, data-driven platform for UPSC Civil Services Prelims preparation powered by 17 years of canonical microtheme analysis across UPSC CSE, CAPF (AC), and CDS examinations.**
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Live_Portal-success?style=for-the-badge&logo=github)](https://pages.github.com/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Live_Portal-success?style=for-the-badge&logo=github)](https://mahavishnu47.github.io/upsc-prelims-microthemes/)
 [![Questions Cataloged](https://img.shields.io/badge/Questions_Cataloged-6%2C215-blue?style=for-the-badge)](output/all_exams_prelims.csv)
 [![Canonical Microthemes](https://img.shields.io/badge/Canonical_Microthemes-183-orange?style=for-the-badge)](dashboard/data/book_microthemes.json)
 [![Coverage Rate](https://img.shields.io/badge/CSE_2024_PYQ_Overlap-100%25-brightgreen?style=for-the-badge)](dashboard/index.html)
